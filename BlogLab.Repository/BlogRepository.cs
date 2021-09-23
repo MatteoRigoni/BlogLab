@@ -65,7 +65,7 @@ namespace BlogLab.Repository
             using (var connection = new SqlConnection(_config.GetConnectionString("Default")))
             {
                 await connection.OpenAsync();
-                blogs = await connection.QueryAsync<Blog>("Blog_GetByUserId",
+                blogs = await connection.QueryAsync<Blog>("Blog_GetUserId",
                     new { ApplicationUserId = applicationUserID },
                     commandType: CommandType.StoredProcedure);
             }
